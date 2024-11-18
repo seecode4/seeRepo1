@@ -1,0 +1,16 @@
+custid	Computer generated ID to identify customers throughout the database
+retained	"1, if customer is assumed to be active, 0 = otherwise"
+created	Date when the contact was created in the database - when the customer joined
+firstorder	Date when the customer placed first order
+lastorder	Date when the customer placed last order
+esent	Number of emails sent
+eopenrate	Number of emails opened divided by number of emails sent
+eclickrate	Number of emails clicked divided by number of emails sent
+avgorder	Average order size for the customer
+ordfreq	Number of orders divided by customer tenure
+paperless	1 if customer subscribed for paperless communication (only online)
+refill	1 if customer subscribed for automatic refill
+doorstep	1 if customer subscribed for doorstep delivery
+train	1 if customer is in the training database
+favday	Customer's favorite delivery day
+city	City where the customer resides in
