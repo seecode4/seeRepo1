@@ -87,7 +87,7 @@ def ollama_action_model(model_name, actionstr, test_path):
         print(f"\nError ollama {model_name} {actionstr}: {e}")
 
 
-def ask_llama3_1(ollama_client, question, model="llama3.1:8b"):
+def ask_llm_model(ollama_client, question, model="llama3.1:8b"):
     # ollama_client = ollama.Client(base_url="http://localhost:11434")
     ans = ollama_client.generate(
         model=model,
@@ -99,7 +99,7 @@ def ask_llama3_1(ollama_client, question, model="llama3.1:8b"):
         return 'Got No Answer'
 
 
-def get_answers_from_llm(qa_dict_list, num):
+def get_answers_from_llm(qa_dict_list, num, model="llama3.1:8b"):
     """ Query llama3.1 for num questions from qa_dict_list add columns GotAnswer and TimetoAnswer"""
     # pip install ollama
     ollama_client = ollama.Client()
@@ -113,7 +113,7 @@ def get_answers_from_llm(qa_dict_list, num):
         # Get the answer to question from LLM
         nwords_exp = get_num_words_in_str(testqa['NormalizedValue'])
         ques_to_ask = f"In about {nwords_exp} words, {testqa['Question']}"
-        output = ask_llama3_1(ollama_client, ques_to_ask)
+        output = ask_llm_model(ollama_client, ques_to_ask, model)
         t_end = time.time()
         t_ans_sec = t_end - t_start
         testqa['GotAnswer'] = output
@@ -236,8 +236,7 @@ def main():
         curr_qa_list = datsets_dict_list[i]['qa_dict_list']
         print(f"Num qa in curr_qa_list = {len(curr_qa_list)}")
         # Get answers to numq number of questions from curr_qa_list
-        qa_dict_list = get_answers_from_llm(
-            curr_qa_list, numq)
+        qa_dict_list = get_answers_from_llm(curr_qa_list, numq, model_name)
 
         # print example qa with llm's answer
         pp = pprint.PrettyPrinter(width=101, compact=True)
