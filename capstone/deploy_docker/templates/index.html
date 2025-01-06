@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Data Visualization with Flask</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+ <h1>Data Visualization with Flask</h1>
+ <div class="chart-container">
+     {% if chart_url %}
+         <img src="data:image/png;base64,{{ chart_url }}" alt="Bar Chart">
+     {% else %}
+         Empty chart_url
+     {% endif %}
+ </div>
+</body>
+</html>
