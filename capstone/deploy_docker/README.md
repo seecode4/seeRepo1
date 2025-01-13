@@ -1,5 +1,3 @@
-## Using a LLM with Ollama Api for Triviaqa
-
 In this project, the [llama3.1 with 8B parameters](https://huggingface.co/meta-llama/Llama-3.1-8B) 
 large language models (LLM) is used to answer questions from the
  [triviaqa](https://github.com/mandarjoshi90/triviaqa) dataset. 
@@ -13,7 +11,7 @@ large language models (LLM) is used to answer questions from the
 
 The following files are used to create a docker image using a Windows11 WSL2 shell and the Docker Desktop. File list for docker image as in the git repository are as below:
 * triviaqa_ijson_utils.py:  ijson utilities to get the qa entries from triviaqa json files into a list of dict items
-* app_ijson_ollama.py: main program to perform qa using a open source llm model
+* app_ijson_ollama_llm.py: main program to perform qa using a open source llm model
 * static folder with style.css file for flask app
 * templates folder with index.html template
 * requirements.txt: holds packages and version information for creating a docker image
@@ -24,4 +22,4 @@ The following files are used to create a docker image using a Windows11 WSL2 she
 To create a docker build</br>
 docker build -t \<your-dockerhub-username\>/\<imagename\>:\<tag\> .
 
-The image may be pushed to the [Docker Hub](https://hub.docker.com/) to run in a Docker Container
+The image may be pushed to the [Docker Hub](https://hub.docker.com/) to run in a Docker Container.</br> An example docker container run of the published docker image, seedock4/my-llm-ollama-app:01 with udocker in google colab is in try_llm_ollama_docker_image.ipynb.
