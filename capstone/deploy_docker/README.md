@@ -1,3 +1,5 @@
+## Using a LLM with Ollama Api for Triviaqa
+
 In this project, the [llama3.1 with 8B parameters](https://huggingface.co/meta-llama/Llama-3.1-8B) 
 large language models (LLM) is used to answer questions from the
  [triviaqa](https://github.com/mandarjoshi90/triviaqa) dataset. 
